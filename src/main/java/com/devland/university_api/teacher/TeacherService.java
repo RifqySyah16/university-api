@@ -133,6 +133,10 @@ public class TeacherService {
         String email = row.getCell(2).getStringCellValue();
         String address = row.getCell(3).getStringCellValue();
 
-        return new TeacherRequestDTO(name, email, address);
+        return TeacherRequestDTO.builder()
+                .name(name)
+                .email(email)
+                .address(address)
+                .build();
     }
 }

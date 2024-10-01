@@ -143,7 +143,11 @@ public class StudentService {
         String email = row.getCell(2).getStringCellValue();
         String address = row.getCell(3).getStringCellValue();
 
-        return new StudentRequestDTO(name, email, address);
+        return StudentRequestDTO.builder()
+                .name(name)
+                .email(email)
+                .address(address)
+                .build();
     }
 
 }

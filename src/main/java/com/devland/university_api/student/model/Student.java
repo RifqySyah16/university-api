@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.devland.university_api.classroom.model.Classroom;
 import com.devland.university_api.student.model.dto.StudentResponseDTO;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,11 +27,17 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "address", nullable = false)
     private String address;
+
     @ManyToMany
-    @JsonIgnore
     private List<Classroom> classrooms;
 
     public StudentResponseDTO convertToResponse() {

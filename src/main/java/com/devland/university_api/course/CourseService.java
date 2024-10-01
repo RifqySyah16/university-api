@@ -130,6 +130,9 @@ public class CourseService {
         String courseName = row.getCell(1).getStringCellValue();
         String description = row.getCell(2).getStringCellValue();
 
-        return new CourseRequestDTO(courseName, description);
+        return CourseRequestDTO.builder()
+                .courseName(courseName)
+                .description(description)
+                .build();
     }
 }
